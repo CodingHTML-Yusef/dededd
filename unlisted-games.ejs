@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../components/head") %>
+    <script src="uv/uv.bundle.js"></script>
+    <script src="uv/uv.config.js"></script>
+  </head>
+  <body>
+    <%- include("../components/nav") %>
+
+    <h1 class="text-2xl font-semibold text-gray-200 lg:text-3xl m-10 text-center">Cheats</h1>
+
+    <p class="text-center mb-10 text-gray-300 w-3/5 m-4 block mx-auto">Drag button to your bookmark bar, then press on them to make them work :</p>
+
+  <head>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button5 {background-color: #555555;} /* Black */
+</style>
+</head>
+  <br>
+<br      />
+  <div class="text-center">
+    <a href="javascript:alert('null')" id="cheatsBtn">
+      <button2 class="recent">Blooket Hack</button2>
+<br>
+<br>
+<a href="https://glatic.games/vpn">VPN</a>
+
+
+    </a>
+  </div>
+  
+  <script>
+    fetch("https://raw.githubusercontent.com/Minesraft2/Blooket-Cheats/main/obfuscated/gui.js", {
+      method: "GET"
+    }).then((data) => data.text()).then((data) => {
+      let cheats = encodeURIComponent(data.split('*/ ')[1]);
+      document.querySelector('#cheatsBtn').href = 'javascript:' + cheats;
+    }).catch((err) => {
+      console.error("Error fetching Blooket Cheats:", err);
+    });
+  </script>
+
+<script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
+    new Crate({
+        server: '1054391517185327195', // Glatic Games
+        channel: '1054391518854660192' // #💬│𝘔𝘢𝘪𝘯-𝘊𝘩𝘢𝘵
+    })
+</script>   
+ <%- include("../components/footer") %>
+  </body>
+</html>
+<script>
+  function launch(url) {
+    window.navigator.serviceWorker.register("./sw.js", {
+      scope: __uv$config.prefix
+    }).then(() => {
+      url = location.protocol + "//" + location.host + __uv$config.prefix + __uv$config.encodeUrl(url);
+      let win = window.open("about:blank", "_blank");
+      win.document.body.style.margin = "0";
+      win.document.body.style.height = "100vh";
+      win.document.head.innerHTML = `<link rel="icon" href="/favicon.ico">`;
+      let iframe = win.document.createElement("iframe");
+      iframe.style.border = "none";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.margin = "0";
+      iframe.src = url;
+      win.document.body.appendChild(iframe);
+      let script = win.document.createElement("script");
+      script.innerHTML = `
+        let title = "";
+        let favicon = "";
+        let iframe = document.querySelector("iframe");
+        setInterval(() => {
+          try {
+            if (iframe.contentDocument.title !== title) {
+              title = iframe.contentDocument.title;
+              document.title = title;
+            }
+          } catch {}
+          try {
+            const icon = iframe.contentDocument.querySelector("link[rel='icon']").href ?? "";
+            if(icon !== favicon) {
+              favicon = icon;
+              document.querySelector("link[rel='icon']").href = icon;
+            }
+          } catch {}
+        }, 10);
+      `;
+      win.document.body.appendChild(script);
+    });
+  }
+</script>

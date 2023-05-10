@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../components/head") %>
+    <script src="uv/uv.bundle.js"></script>
+    <script src="uv/uv.config.js"></script>
+ </head>
+  <body>
+    <%- include("../components/nav") %>  
+      </div>
+<p style="background-image: url('https://cdn.glitch.global/be163090-7063-4bdf-a18a-51662dd5380d/orbit-pixel-art.gif?v=1682356984502');">
+    <h1 class="text-2xl font-semibold text-gray-200 lg:text-3xl m-10 text-center">Apps</h1>
+
+    <p class="text-center mb-10 text-gray-300 w-3/5 m-4 block mx-auto">Note: Press Register ServiceWorker To play </p>
+<FONT COLOR="#FFFF99">
+<center><a href="https://violetgg2.cyclic.app/uv/service/hvtrs8%2F-wuw%2Cgmoelg.aoo%2F%3Dgus%5Drf%3Dqsn">Google</a> <br>
+<center><a href="https://violetgg2.cyclic.app/uv/service/hvtrs8%2F-dksaopd%2Ccmm-lmgkn">Discord</a> <br>
+<center><a href="https://chat-gpt.org">ChatGPT</a> <br>
+<center><a href="https://violetgg2.cyclic.app/uv/service/hvtrs8%2F-wuw%2Cdksle%7Bpnuq.aoo%2Fgn%2Fcc">Disney+</a> <br>
+<center><a href="https://violetgg2.cyclic.app/uv/service/hvtrs8%2F-wuw%2Cngtdlkx%2Ccmm-cc%2F">Neflix</a> <br>
+ <center><a href="https://violetgg2.cyclic.app/uv/service/hvtrs8%2F-zmrm.vo-">Zoro.to(Free anime)</a> <br>
+<center><a href="https://violetgg2.cyclic.app/uv/service/hvtrs8%2F-wuw%2Ctkkvoi.aoo%2F">Tiktok</a> <br>
+<center><a href="https://uv-app-production.up.railway.app/uv/service/hvtrs8%2F-wuw%2Cilsvaercm%2Ccmm-">InstaGram</a> <br>
+<center><a href="https://violetgg2.cyclic.app/uv/service/hvtrs8%2F-wuw%2Cgmoelg.aoo%2Fqecrah%3Dq%3Fx%60oz%2500almuf%2500eaoilg">Xbox Cloud Gaming</a> <br>
+<center><a href="https://obliged-gisele-thetatertotgod.koyeb.app/uv/service/hvtrs8%2F-aacmultq.qncpahct%2Ccmm-aacmultq%2Ft2-lmgkn%3Dcmnvilug%3D%272Daacmultq%250Fuencmmg-">SnapChat</a> <br>
+ <center><a href="https://violetgg2.cyclic.app/uv/service/hvtrs8%2F-gmkw.qx-">Goku.to(Free movies&shows)</a> <br>
+ <center><a href="https://violetgg2.cyclic.app/uv/service/hvtrs8%2F-wuw%2Cntific.aoo%2Fgn%2Fuq%2Feedopcg%2Feedopcg-gxrepignae-">Geforce NOW</a> <br>
+
+   
+    <script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
+    new Crate({
+        server: '1054391517185327195', // Glatic Games
+        channel: '1054391518854660192' // #💬│𝘔𝘢𝘪𝘯-𝘊𝘩𝘢𝘵
+    })
+</script>   
+<%- include("../components/footer") %>
+  </body>
+</html>
+<script>
+  function launch(url) {
+    window.navigator.serviceWorker.register("./sw.js", {
+      scope: __uv$config.prefix
+    }).then(() => {
+      url = location.protocol + "//" + location.host + __uv$config.prefix + __uv$config.encodeUrl(url);
+      let win = window.open("about:blank", "_blank");
+      win.document.body.style.margin = "0";
+      win.document.body.style.height = "100vh";
+      win.document.head.innerHTML = `<link rel="icon" href="/favicon.ico">`;
+      let iframe = win.document.createElement("iframe");
+      iframe.style.border = "none";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.margin = "0";
+      iframe.src = url;
+      win.document.body.appendChild(iframe);
+      let script = win.document.createElement("script");
+      script.innerHTML = `
+        let title = "";
+        let favicon = "";
+        let iframe = document.querySelector("iframe");
+        setInterval(() => {
+          try {
+            if (iframe.contentDocument.title !== title) {
+              title = iframe.contentDocument.title;
+              document.title = title;
+            }
+          } catch {}
+          try {
+            const icon = iframe.contentDocument.querySelector("link[rel='icon']").href ?? "";
+            if(icon !== favicon) {
+              favicon = icon;
+              document.querySelector("link[rel='icon']").href = icon;
+            }
+          } catch {}
+        }, 10);
+      `;
+      win.document.body.appendChild(script);
+    });
+  }
+</script>
